@@ -1,0 +1,48 @@
+/*---------------------------------------------------------------------------
+VENDOR
+For third-party styles. Keep this first to maintain overrides.
+----------------------------------------------------------------------------*/
+
+// @import "vendor/";
+
+/*---------------------------------------------------------------------------
+MODULES & VARIABLES
+The modules directory is reserved for Sass code that doesn't cause Sass to
+actually output CSS. Things like mixin declarations, functions, and variables.
+----------------------------------------------------------------------------*/
+
+@import "modules/variables";
+@import "modules/mixins";
+
+/*---------------------------------------------------------------------------
+PARTIALS
+The partials directory is where different content categories can be constructed-
+typography, buttons, textboxes, selectboxes, etc.
+----------------------------------------------------------------------------*/
+
+@import "partials/normalize";
+@import "partials/grid";
+@import "partials/typography";
+@import "partials/lists";
+@import "partials/tables";
+@import "partials/icons";
+@import "partials/links-buttons";
+@import "partials/forms";
+@import "partials/media";
+@import "partials/helpers";
+@import "partials/base";
+@import "partials/alerts";
+@import "partials/breadcrumbs";
+@import "partials/pagination";
+@import "partials/tabs";
+
+/*---------------------------------------------------------------------------
+PRINT STYLES
+----------------------------------------------------------------------------*/
+@media print {
+
+	// styles in print.scss
+	@import "partials/print";
+
+}
+

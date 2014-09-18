@@ -1,0 +1,115 @@
+/*---------------------------------------------------------------------------
+Styles
+----------------------------------------------------------------------------*/
+
+/*----------------------------------------
+Clearfix Placeholder */
+
+// @extend %clearfix;
+%clearfix {
+  &:after {
+	content: "";
+	display: table;
+	clear: both;
+  }
+}
+
+
+/*----------------------------------------
+Breakpoints */
+
+// @include breakpoint(sm) {};
+
+@mixin breakpoint($min: 0, $max: 0) {
+	$type: type-of($min);
+  
+	@if $type == string {
+
+		@if $min == xs { // < 480px
+			@media only screen and (max-width: 30em) { @content; }
+		}
+
+		@else if $min == sm { // > 481px
+			@media only screen and (min-width: 30.063em) { @content; }
+		}
+
+		@else if $min == md { // > 768px
+			@media only screen and (min-width: 48em) { @content; }
+		}
+
+		@else if $min == lg { // > 992px
+			@media only screen and (min-width: 62em) { @content; }
+		}
+
+		@else if $min == xl { // > 1200px
+			@media only screen and (min-width: 75em) { @content; }
+		}
+
+		@else if $min == 2x {
+			@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+				   only screen and (min--moz-device-pixel-ratio: 1.5),
+				   only screen and (min-device-pixel-ratio: 1.5) { @content; }
+		}
+
+		@else {
+			@warn "Breakpoint mixin supports: xs, sm, md, lg, 2x";
+		}
+	}
+	@else if $type == number {
+		// Allow for custom parameters for min and max size
+		$query: "all" !default;
+		@if      $min != 0 and $max != 0 { $query: "(min-width: #{$min}) and (max-width: #{$max})"; } // set both min and max
+		@else if $min != 0 and $max == 0 { $query: "(min-width: #{$min})"; } // set just min
+		@else if $min == 0 and $max != 0 { $query: "(max-width: #{$max})"; } // set just max
+		@media #{$query} { @content; }
+	}
+}
+
+
+/*----------------------------------------
+Grid */
+
+// Default value for $max-cols. Change the number
+// of columns and gutter width in _variables.scss
+@mixin col($col, $max-cols: 12) {
+	width: (100%/$max-cols)*$col;
+}
+
+
+/*----------------------------------------
+Transitions */
+
+@mixin transition($transition...) {
+	// defining prefixes so we can use them in mixins below
+	$prefixes:      ("-webkit-", "" );
+		@each $prefix in $prefixes {
+		#{$prefix}transition: $transition;
+	}
+}
+
+
+/*----------------------------------------
+Gradients */
+
+// @include css-gradient(#dfdfdf,#f8f8f8);
+@mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+	background-color: $to;
+	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image: -webkit-linear-gradient(top, $from, $to);
+	background-image: -moz-linear-gradient(top, $from, $to);
+	background-image: -o-linear-gradient(top, $from, $to);
+	background-image: linear-gradient(to bottom, $from, $to);
+}
+
+
+/*----------------------------------------
+Box sizing */
+
+// @include box-sizing(border-box);
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	-moz-box-sizing:    $type;
+	-ms-box-sizing:     $type;
+	box-sizing:         $type;
+}
+

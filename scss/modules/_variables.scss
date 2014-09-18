@@ -1,0 +1,90 @@
+/*---------------------------------------------------------------------------
+Variables
+----------------------------------------------------------------------------*/
+
+/*----------------------------------------
+Vertical Rhythm
+ */
+
+// Based on a 3:4 perfect fourths ratio with a 1.333 scale factor.
+// Create your own here: http://www.gridlover.net/app/
+
+$base-font-size: 1em;
+$base-line-height: 1.5em;
+$measure: 1000px;
+
+$h1-font-size: 2.375em;
+$h1-line: 0.631578947em;
+$h1-lines: 2;
+$h1-line-height: $h1-line * $h1-lines;
+$h1-margin-top: 0 * $h1-line;
+$h1-margin-bottom: 1 * $h1-line;
+
+$h2-font-size: 1.75em;
+$h2-line: 0.857142857em;
+$h2-lines: 2;
+$h2-line-height: $h2-line * $h2-lines;
+$h2-margin-top: 0 * $h2-line;
+$h2-margin-bottom: 1 * $h2-line;
+
+$h3-font-size: 1.3125em;
+$h3-line: 1.142857143em;
+$h3-lines: 1;
+$h3-line-height: $h3-line * $h3-lines;
+$h3-margin-top: 1 * $h3-line;
+$h3-margin-bottom: 1 * $h3-line;
+
+$h4-font-size: 1em;
+$h4-line: 1.5em;
+$h4-lines: 1;
+$h4-line-height: $h4-line * $h4-lines;
+$h4-margin-top: 1 * $h4-line;
+$h4-margin-bottom: 1 * $h4-line;
+
+// Variables are rounded to pixels
+// It's safe to multiply with integers
+// eg. h1 {margin: 2*$h1-line 0;}
+// The grid will stay aligned
+
+
+/*----------------------------------------
+Grid Settings */
+
+// You can change it if you need more or less cols
+// Variables
+$max-cols: 12;
+$gutter-width: 15px;
+
+// Max width
+// This could be set to a pixel- or em-based value
+// to cap the layout with more specificity.
+$max-width: 90%;
+
+
+/*----------------------------------------
+Color Palette
+*/
+
+// Replace these values with your own
+// These variables can also be copy and pasted
+// into sg_style.scss when using the styleguide.
+
+$seagreen:   		#88ffda;
+$aqua:  			#4dd3c9;
+$teal:  			#339db0;
+$cobalt:  			#2078aa;
+$navy:  			#3a517a;
+$slate:  			#384355;
+
+$link-color:        $teal;
+$link-hover:        darken($link-color, 12%);
+
+$text-color:   		#555;
+$border-color:      #ececec;
+
+// Alerts
+$alert-yellow:      #eb8900;
+$alert-red:         #ff4d30;
+$alert-green:       #25a148;
+$alert-blue:        #00a1c2;
+

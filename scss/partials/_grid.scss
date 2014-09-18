@@ -1,0 +1,89 @@
+/*---------------------------------------------------------------------------
+Grid Styles
+----------------------------------------------------------------------------*/
+
+// Wrap
+.wrap {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+
+	@include breakpoint(md) {
+		max-width: $max-width;
+	}
+}
+
+// Rows
+.row {
+	margin-left: -$gutter-width;
+	margin-right: -$gutter-width;
+	display: -webkit-flex;
+    -webkit-flex-flow: row wrap;
+
+	@extend %clearfix;
+}
+
+// Each column
+[class^="col-"],
+[class*="col-"] {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+			box-sizing: border-box;
+	float: left;
+	min-height: 1px; // prevent empty column from collapsing
+	padding-left: $gutter-width;
+	padding-right: $gutter-width;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+// Columns are 100% width by default
+
+// Extra Small
+// Use this when you want to have columns,
+// even at narrower viewports.
+@include breakpoint(sm) {
+	@for $sum from 1 through $max-cols {
+		.col-xs-#{$sum}of#{$max-cols} {			
+			@include col($sum, $max-cols);
+		}
+	}
+}
+
+// Small
+@include breakpoint(sm) {
+	@for $sum from 1 through $max-cols {
+		.col-sm-#{$sum}of#{$max-cols} {			
+			@include col($sum, $max-cols);
+		}
+	}
+}
+
+// Medium
+@include breakpoint(md) {
+	@for $sum from 1 through $max-cols {
+		.col-md-#{$sum}of#{$max-cols} {			
+			@include col($sum, $max-cols);
+		}
+	}
+}
+
+// Large
+@include breakpoint(lg) {
+	@for $sum from 1 through $max-cols {
+		.col-lg-#{$sum}of#{$max-cols} {			
+			@include col($sum, $max-cols);
+		}
+	}
+}
+
+// Extra Large
+@include breakpoint(xl) {
+	@for $sum from 1 through $max-cols {
+		.col-xl-#{$sum}of#{$max-cols} {			
+			@include col($sum, $max-cols);
+		}
+	}
+}
+

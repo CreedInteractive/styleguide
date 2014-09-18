@@ -1,0 +1,748 @@
+/* -------------------------------------------------------------------------
+ Style Guide Boilerplate v2.0.1
+ Repo: 
+ Author: Brett Jankord, Jeremy Elder
+ License: MIT
+---------------------------------------------------------------------------- */
+
+/*---------------------------------------------------------------------------
+Default
+----------------------------------------------------------------------------*/
+
+html,
+body {
+	overflow-x: hidden;
+}
+
+body {
+		font-size: 100%;
+		height: 100%;
+		margin: 0;
+}
+
+
+/*----------------------------------------
+Breakpoints
+*/
+
+// Usage: @include breakpoint(sm) {}
+
+@mixin breakpoint($class) {
+	@if $class == sm {
+		@media (min-width: 481px) { @content; }
+	}
+
+	@else if $class == md {
+		@media (min-width: 768px) { @content; }
+	}
+
+	@else if $class == lg {
+		@media (min-width: 992px) { @content; }
+	}
+
+	@else if $class == xl {
+		@media (min-width: 1200px) { @content; }
+	}
+
+	@else if $class == 2x {
+		@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+		       only screen and (min--moz-device-pixel-ratio: 1.5),
+		       only screen and (min-device-pixel-ratio: 1.5) { @content; }
+	}
+
+	@else {
+		@warn "Breakpoint mixin supports: sm, md, lg, 2x";
+	}
+}
+
+
+/*----------------------------------------
+Transitions
+*/
+
+@mixin transition($transition...) {
+	// defining prefixes so we can use them in mixins below
+	$prefixes: ("-webkit-", "" );
+		@each $prefix in $prefixes {
+		#{$prefix}transition: $transition;
+	}
+}
+
+
+/*----------------------------------------
+Icons */
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('fonts/icomoon.eot?-qoszb3');
+	src:url('fonts/icomoon.eot?#iefix-qoszb3') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-qoszb3') format('woff'),
+		url('fonts/icomoon.ttf?-qoszb3') format('truetype'),
+		url('fonts/icomoon.svg?-qoszb3#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-menu:before {
+	content: "\e600";
+}
+.icon-deleteocircle:before {
+	content: "\e601";
+}
+
+
+/*----------------------------------------
+Container */
+
+// Off canvas nav
+.openNav #container {
+	left: 0;
+
+	-webkit-transform: translate3d(220px, 0, 0);
+	   -moz-transform: translate3d(220px, 0, 0);
+	    -ms-transform: translate3d(220px, 0, 0);
+	     -o-transform: translate3d(220px, 0, 0);
+	        transform: translate3d(220px, 0, 0);
+	-webkit-transition: -webkit-transform 250ms ease;
+	   -moz-transition: -moz-transform 250ms ease;
+	     -o-transition: -o-transform 250ms ease;
+	        transition: transform 250ms ease;
+}
+
+// When the panel is closed, transition the container back to the left
+#container {
+	height: 100%;
+	left: 0;
+	min-height: 100%;
+    position: relative;
+	-webkit-transform: translate3d(0, 0, 0);
+	   -moz-transform: translate3d(0, 0, 0);
+	    -ms-transform: translate3d(0, 0, 0);
+	     -o-transform: translate3d(0, 0, 0);
+	        transform: translate3d(0, 0, 0);
+	-webkit-transition: -webkit-transform 250ms ease;
+	   -moz-transition: -moz-transform 250ms ease;
+	     -o-transition: -o-transform 250ms ease;
+	        transition: transform 250ms ease;
+	
+	@include breakpoint(md) {
+    	transform: none;
+    }    
+}
+
+
+/*---------------------------------------------------------------------------
+Side Panel & Navigation
+----------------------------------------------------------------------------*/
+
+// Side Panel Header
+.sg-panel-header {
+	background: #f8f8f8;
+	border-bottom: 1px solid #ececec;
+	height: 60px;
+	position: absolute;
+	     top: 0;
+	   right: -100%;
+	width: 100%;
+
+	@include breakpoint(md) {
+		background: none;
+		border: none;
+		height: auto;
+		position: relative;
+		right: 0;
+		width: auto;
+	}
+}
+
+	// Toggle Nav
+	.sg-nav-toggle {
+		border: none;
+		float: left;
+		font-size: 32px;
+		font-weight: bold;
+		line-height: 60px;
+		margin-left: 20px;
+		margin-right: 16px;
+
+		&:visited,
+		&:hover,
+		&:focus,
+		&:active {
+			border: none;
+		}
+
+		@include breakpoint(md) {
+			display: none;
+		}
+	}
+
+	// Styleguide title
+	.sg-title {
+		font-size: 1.5em;
+		line-height: 60px;
+		margin: 0;
+
+		a, a:visited, a:hover, a:active, a:focus {
+			border: none;
+			color: #444 !important;
+			text-decoration: none;
+		}
+
+		@include breakpoint(md) {
+			line-height: 1.263157894;
+			margin: 1.5em 0;
+			padding: 0 30px;
+		}
+	}
+
+.sg-nav-panel {
+	background: #f8f8f8;
+	border-right: 1px solid #ececec;
+	height: 100%;	
+	position: fixed;
+		 top: 0;
+		left: -100%;
+	  bottom: 0;
+	width: 100%;
+    z-index: 5;
+
+    .sg-nav {
+    	float: right;
+    	list-style: none;
+		margin: 0;
+		margin-top: 59px;
+		padding: 0;
+		width: 220px;
+
+		li {
+			margin: 0;
+			padding: 0 20px;
+
+			a {
+				border: none;
+				color: #888;
+				display: block;
+				font-size: 1em;
+				padding: 0.25em 0;
+				text-decoration: none;
+				@include transition(all 0.2s ease-in-out);
+
+				&:hover {
+					border: none;
+					color: #444;
+				}
+			}
+
+			&.sg-nav-section {
+				background: #fff;
+				border-top: 1px solid #ececec;
+				border-bottom: 1px solid #ececec;
+				color: #444;
+				font-size: 1em;
+				font-weight: bold;
+				margin-top: 0.75em;
+				margin-bottom: 0.25em;
+				padding: 0.375em 20px;
+
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+    }
+
+	@include breakpoint(md) {
+		overflow-y: auto;
+		left: 0;
+		width: 240px;
+
+		.sg-nav {
+			float: none;
+			margin-top: 0;
+			width: 100%;
+			
+			li {
+				margin: 0;
+				padding: 0 30px;
+
+				a {
+					font-size: 0.875em;
+					padding: 0.375em 0;
+				}
+
+				&.sg-nav-section {
+					font-size: 1.125em;
+					margin-top: 0.75em;
+					margin-bottom: 0.25em;
+					padding: 0.375em 30px;
+				}
+			}
+		}
+	} // end breakpoint
+}
+
+
+/*---------------------------------------------------------------------------
+Content
+----------------------------------------------------------------------------*/
+
+.sg-wrap {
+	padding-top: 60px;
+
+	@include breakpoint(md) {
+		margin-left: 240px;
+		padding-top: 0.75em;
+	}
+}
+
+.sg-section {
+	margin-bottom: 32px; // For older browsers 
+	margin-bottom: 3em;
+}
+
+	.sg-anchor {
+		border: none;
+		display: block;
+		padding-top: 1em;
+
+		&:hover {
+			border: none;
+		}
+	}
+
+.sg-info,
+.sg-base-styles,
+.sg-pattern-styles,
+.sg-brand-styles {
+	padding-bottom: 24px; // For older browsers
+	padding-bottom: 2em;
+}
+
+
+/*---------------------------------------------------------------------------
+Utility Classes
+----------------------------------------------------------------------------*/
+
+.sg-container {
+	padding: 16px 0; // For older browsers
+	padding: 1em 0;
+}
+
+.sg-animated {
+	-webkit-transition: all 0.6s ease-out;  
+	   -moz-transition: all 0.6s ease-out;
+		-ms-transition: all 0.6s ease-out;
+		 -o-transition: all 0.6s ease-out;
+			transition: all 0.6s ease-out;
+}
+
+
+/*---------------------------------------------------------------------------
+Modules
+----------------------------------------------------------------------------*/
+
+/*----------------------------------------
+Color Swatches
+*/
+
+.sg-swatch-set {
+	background: #fff;
+	border: 1px solid #ececec;
+	border-radius: 6px;
+	display: inline-block;
+	margin: 0 0.5em 0.5em 0;
+	overflow: hidden;
+	padding: 5px;
+	position: relative;
+	vertical-align: middle;
+	box-sizing: border-box;
+}
+	.sg-swatch {
+		background: #f2f2f2;
+		float: left;
+		height: 60px;
+		position: relative;
+		text-align: left;
+		width: 60px;
+
+		span {
+			background: #000;
+			background: rgba(0,0,0,0.7);
+			color: #fff;
+			display: block;
+			font-size: 0.813em;
+			margin: 0;
+			padding: 5px 0;
+			position: absolute;
+			    left: 0;
+			  bottom: 0;
+			text-align: center;
+			width: 100%;
+		}
+
+		@include breakpoint(md) {
+			width: 80px;
+
+			span {
+				display: none;
+			}
+
+			&:hover span {
+				display: block;
+			}
+		}		
+
+		&:first-child {
+			border-radius: 3px 0 0 3px;
+
+			span {
+				border-radius: 0 0 0 3px;
+			}
+		}
+
+		&:last-child {
+			border-radius: 0 3px 3px 0;
+
+			span {
+				border-radius: 0 0 3px 0;
+			}
+		}
+	}
+
+// Replace these values with those from the color palette
+// Values copied from the _variables.scss
+
+$seagreen:   		#88ffda;
+$aqua:  			#4dd3c9;
+$teal:  			#339db0;
+$cobalt:  			#2078aa;
+$navy:  			#3a517a;
+$slate:  			#384355;
+
+// Set the background of the swatches
+.sg-color-1 {background: $seagreen;}
+.sg-color-2 {background: $aqua;}
+.sg-color-3 {background: $teal;}
+.sg-color-4 {background: $cobalt;}
+.sg-color-5 {background: $navy;}
+.sg-color-6 {background: $slate;}
+
+
+/*----------------------------------------
+Grid Highlighting:
+Apply background colors to easily view the columns
+*/
+
+.sg-grid-example {
+	background: #E6ECED;
+	margin-bottom: 15px;
+}
+
+.sg-grid-example [class^="col-"],
+.sg-grid-example [class*="col-"] {
+	
+	p {
+		background: #C7D6D9;
+		color: #fff;
+		font-size: 0.75em;
+		font-weight: bold;
+		padding: 1em 0;
+		text-align: center;
+	}
+
+	// embeded column
+	div p {
+		background: #A0ADB0;
+	}
+}
+
+
+/*----------------------------------------
+Headings
+*/
+
+.sg-h1,
+.sg-h2,
+.sg-h3,
+.sg-h4 {
+
+	a, a:visited, a:hover, a:focus, a:active {
+		border-top: 2px solid #ececec;
+		color: #888;
+	}
+}
+
+.sg-h1 {
+	color: #444;
+	padding-bottom: 0.2em;
+}
+
+.sg-h2 {
+	margin-bottom: 1em;
+	text-transform: capitalize;
+}
+
+.sg-h3,
+.sg-h4 {
+	color: #2078AA;
+}
+
+.sg-h4 {  
+	margin-top: 2em;
+}
+
+.sg-no-margin-top {
+	margin-top: 0;
+}
+
+
+/*----------------------------------------
+Buttons & Links
+*/
+
+// You can add styles if you want, or leave
+// them to match the custom styles.
+.sg-btn {}
+
+.sg-btn--select {
+	font-size: 0.75em !important;
+	height: 30px !important;
+	line-height: 24px !important;
+	padding: 0.25em 0.5em !important;
+	position: absolute !important;
+		 top: 6px;
+	   right: 6px;
+}
+
+.sg-btn--select.is-active:hover:after {
+	background: #111;
+	background: rgba(0,0,0,.8);
+	border-radius: 5px;
+	top: 45px;
+	color: #fff;
+	content: "Selected code ready to be copied";
+	font-size: .8em;
+	display: block;
+	right: 5px;
+	padding: 5px 15px;
+	position: absolute;
+	white-space: nowrap;
+	z-index: 98;
+}
+
+.sg-btn--select.is-active:hover:before {
+	border: solid;
+	border-color: #111 transparent;
+	border-width: 0 6px 6px 6px;
+	top: 40px;
+	content: "";
+	display: block;
+	left: 75%;
+	position: absolute;
+	z-index: 99;
+}
+
+// Hide specific buttons for use with JS
+.sg-btn--source,
+.sg-btn--select {
+	display: none;
+}
+
+// Show specific buttons if JS enabled
+.js .sg-btn--source,
+.js .sg-btn--select {
+	display: inline-block;
+}
+
+// Hide specific buttons conditionally
+.operamini .sg-btn--source,
+.legacy .sg-btn--source {
+	display: none;
+}
+
+// Back to top
+.sg-top {
+	float: right;
+	font-size: 13px;
+	margin-top: 12px;
+
+	@include breakpoint(md) {
+		display: none;
+	}
+}
+
+
+/*----------------------------------------
+JS Controls */
+
+.sg-alert-reopen {
+	cursor: pointer;
+	display: none;
+}
+
+
+/*---------------------------------------------------------------------------
+Markup
+----------------------------------------------------------------------------*/
+
+.sg-markup {}
+
+.sg-doc {
+	border-bottom: 1px solid #ececec;
+	margin-bottom: 2em;
+	padding-bottom: 1em;
+}
+
+.sg-markup-controls {
+	overflow: hidden;
+	padding-top: 1.5em;
+}
+
+.sg-source {
+	margin-top: 4px;
+	position: relative;
+}
+
+.sg-source pre {
+	background: #333;
+	border-radius: 5px;
+	border: none;
+	color: #fff;
+	font-size: 0.875em;
+	overflow-x: scroll;
+	padding: 4em 0.25em 0.5em 0.25em;
+
+	@include breakpoint(md) {
+		padding-top: 0.5em;
+	}
+}
+
+.sg-source pre code {
+	background: transparent;
+}
+
+.js .sg-source {
+	max-height: 0;
+	overflow: hidden;
+}
+
+.js .sg-source.is-active,
+.operamini .sg-source,
+.legacy .sg-source {
+	max-height: 2400px; 
+}
+
+
+/*---------------------------------------------------------------------------
+Prettyprint
+----------------------------------------------------------------------------*/
+
+.pln {color: #fff} // plain text
+
+@media screen {
+	.str,
+	.string {color: #E6DB74;} // string content
+	
+	.kwd,
+	.keyword {color: #66D9EF;} // a keyword
+	
+	.com,
+	.comment {color: #75715E;} // a comment
+	
+	.typ {color: #A6E22E;} // a type name
+	
+	.lit,
+	.number {color: #AE81FF;} // a literal value
+	
+	// punctuation, lisp open bracket, lisp close bracket
+	// .pun, .opn, .clo { color: #660 }
+	
+	.tag {color: #F92672;} // a markup tag name
+	
+	.atn {color: #A6E22E;} // a markup attribute name
+	
+	.atv {color: #E6DB74;} // a markup attribute value
+	
+	//.dec, .var { color: #606 } a declaration; a variable name
+	
+	.fun {color: #FF0000;} // a function name
+}
+
+// Use higher contrast and text-weight for printable form.
+@media print, projection {
+	.str {color: #060}
+
+	.kwd {color: #006; font-weight: bold }
+	
+	.com {color: #600; font-style: italic }
+	
+	.typ {color: #404; font-weight: bold }
+	
+	.lit {color: #044}
+	
+	.pun, 
+	.opn, 
+	
+	.clo {color: #440}
+	
+	.tag {color: #006; font-weight: bold }
+	
+	.atn {color: #404}
+	
+	.atv {color: #060}
+}
+
+// Specify class=linenums on a pre to get line numbering
+ol.linenums {
+	border-left:1px solid #444;
+	margin: 0 0 0 3.3em; // IE indents via margin-left
+	padding: 0;
+}
+
+ol.linenums li {
+	color: #bebec5;
+	line-height: 1.5;
+	padding-left: .8em;
+}
+
+
+/*---------------------------------------------------------------------------
+Old IE
+----------------------------------------------------------------------------*/
+
+/**
+ * IE 7 Fixes
+*/
+
+.sg-color {
+	*display: inline;
+	zoom: 1;
+}
+// End IE 7 Fixes
+
+/**
+ * IE 6 Fixes
+*/
+
+pre{
+	_white-space: pre;
+	_white-space: pre-wrap;
+	_word-wrap: break-word;
+}
+// End IE 6 Fixes
+

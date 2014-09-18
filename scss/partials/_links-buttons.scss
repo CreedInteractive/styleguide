@@ -1,0 +1,194 @@
+/*---------------------------------------------------------------------------
+Links
+----------------------------------------------------------------------------*/
+
+a, a:visited {
+	// Using a border instead of underline to 
+	// have more styling options as well as
+	// match the hover transition.
+	border-bottom: 1px solid transparent;
+	color: $link-color;
+	text-decoration: none;
+	@include transition(all 0.2s ease-in-out);
+
+	// On hover
+	&:hover, &:focus {
+		border-bottom: 1px solid $link-hover;
+		color: $link-hover;
+	}
+
+	// On click
+	&:active {}
+
+	// Mobile tap color
+	&:link {
+		// This highlights links on iPhones/iPads.
+		// so it basically works like the :hover selector
+		// for mobile devices.
+		-webkit-tap-highlight-color : rgba(0,0,0,0.3);
+	}
+}
+
+
+/*---------------------------------------------------------------------------
+Button Styles
+----------------------------------------------------------------------------*/
+
+%btn {
+	border: none;
+	border-radius: 3px;
+	color: $text-color;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.875em;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	margin-right: 1em;
+	margin-bottom: 1em;
+	padding: 0 1.25em;
+	position: relative;
+	text-decoration: none;
+	vertical-align: middle;
+	-webkit-font-smoothing: antialiased;
+	@include transition(background-color 0.14s ease-in-out);
+
+	// hovering on the btn
+	&:hover, &:focus {
+		border: none;
+		color: $text-color;
+		text-decoration: none;
+	} // end hover
+
+	// clicking on the button
+	&:active {
+		border: none;
+		color: $text-color;
+		top: 1px; // adds a tiny hop to the click
+	} // end active
+
+} // end .button
+
+// Default Button
+.btn,
+.btn:visited {
+	@extend %btn; // here we load the btn defaults
+	background-color: lighten($text-color, 55%);
+
+	&:hover,
+	&:focus {
+		background-color: lighten($text-color, 50%);
+		border: none;
+		color: $text-color;
+	} // end hover
+
+	&:active {
+		background-color: lighten($text-color, 45%);
+		border: none;
+		color: $text-color;
+	} // end active
+
+}
+
+// Primary Button
+.btn-primary,
+.btn-primary:visited {
+	background-color: $slate;
+	color: #fff;
+
+	&:hover,
+	&:focus {
+		background-color: darken($slate, 12%);
+		color: #fff;
+	} // end hover
+
+	&:active {
+		background-color: darken($slate, 18%);
+	} // end active
+}
+
+// Small Button
+.btn-small {
+	font-size: 0.75em;
+	height: 32px;
+	line-height: 32px;
+}
+
+// Disabled Button
+button:disabled,
+.btn-disabled {
+	cursor: default;
+	opacity: .5;
+
+	&:hover,
+	&:focus {
+		background-color: lighten($text-color, 55%);
+	} // end hover
+
+	&:active {
+		background-color: lighten($text-color, 55%);
+	} // end active
+}
+
+.btn-primary:disabled,
+.btn-primary-disabled {
+	cursor: default;
+	opacity: .5;
+
+	&:hover,
+	&:focus {
+		background-color: $slate;
+	} // end hover
+
+	&:active {
+		background-color: $slate;
+	} // end active
+}
+
+// Wide Button
+.btn-wide {
+	display: block;
+	margin-right: 0;
+	width: 100%;
+}
+
+/*----------------------------------------
+Button Group */
+
+.btn-group {
+
+	.btn {
+		background-color: lighten($text-color, 60%);
+		border-top: 1px solid lighten($text-color, 50%);
+		border-right: 1px solid lighten($text-color, 50%);
+		border-bottom: 1px solid lighten($text-color, 50%);
+		border-radius: 0;
+		float: left;
+		font-size: 0.75em;
+		margin: 0;
+
+		&:hover,
+		&:focus {
+			background-color: lighten($text-color, 55%);
+			border-color: lighten($text-color, 50%);
+		}
+
+		&:active {
+			top: 0;
+		}
+
+		&:first-child {
+			border-left: 1px solid lighten($text-color, 50%);
+			border-radius: 3px 0 0 3px;
+		}
+
+		&:last-child {
+			border-radius: 0 3px 3px 0;
+		}
+	}
+
+	.btn-active {
+		background-color: lighten($text-color, 55%);
+	}
+}
+

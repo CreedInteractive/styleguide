@@ -1,0 +1,22 @@
+/*---------------------------------------------------------------------------
+Base Styles
+----------------------------------------------------------------------------*/
+
+html {
+	font-size: 100%;
+}
+
+body {
+	background: #fff;
+	color: $text-color;
+	font-family: $sans-serif;
+	// Adjust font size
+	font-size: $base-font-size*0.875;
+	line-height: $base-line-height;
+	-webkit-font-smoothing: antialiased;
+
+	@include breakpoint(md) {
+		font-size: $base-font-size;
+	}
+}
+

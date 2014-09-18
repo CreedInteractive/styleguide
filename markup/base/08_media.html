@@ -1,0 +1,69 @@
+<h4 class="sg-h4">Images</h4>
+
+<div class="row">
+	<div class="col-lg-4of12">
+		<p>By default images are responsive and will scale up to their maximum width.</p>
+		<img src="http://placehold.it/800x600/339db0/ffffff&text=Responsive" alt="Responsive Image">
+	</div>
+	<div class="col-lg-4of12">
+		<p>Force an image to remain static (no scaling) by applying the <code>.img-static</code> class.</p>
+		<img src="http://placehold.it/200x200/339db0/ffffff&text=Static" alt="Static Image" class="img-static">
+	</div>
+	<div class="col-lg-4of12">
+		<p>By default SVG graphics are responsive. For information on browser support visit <a href="http://caniuse.com/#search=svg" target="_blank">Can I use</a>.</p>
+		<img src="sg-images/HTML5.svg" alt="HTML5">
+	</div>
+</div>
+
+<h4 class="sg-h4">Responsive Images Using Picturefill</h4>
+<p>To take advantage of the forthcoming W3C HTML standard <code>&lt;picture&gt;</code> element the styleguide also includes support for <a href="http://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a>. Picturefill is a Javascript polyfill that enables support for the <code>&lt;picture&gt;</code> elements in browsers that don&rsquo;t support it natively.</p>
+
+<div class="row">
+	<div class="col-lg-6of12">
+		<p>An image with "srcset" and "sizes" attributes:</p>
+		<img sizes="(min-width: 40em) 80vw, 100vw"
+			 srcset="sg-images/mtn_sm.jpg 325w,
+			         sg-images/mtn_md.jpg 600w,
+			         sg-images/mtn_lg.jpg 1000w"
+			 alt="Mountains">		
+	</div>
+	<div class="col-lg-6of12">
+		<p><strong>Size</strong></p>
+	</div>
+</div>
+
+<h4 class="sg-h4">Video and Audio</h4>
+
+<div class="row">
+	<div class="col-lg-4of12">
+		<p>Video embedded from a source like YouTube.</p>
+		<div class="video-container">
+			<iframe width="1280" height="720" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+		</div>
+	</div>
+	<div class="col-lg-4of12">
+		<p>HTML5 video player.</p>
+		<video controls preload poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" width="640" height="360">
+			<source id="mp4" src="http://media.w3.org/2010/05/bunny/trailer.mp4" type="video/mp4">
+			<source id="ogv" src="http://media.w3.org/2010/05/bunny/trailer.ogv" type="video/ogg">
+			<p>Your user agent does not support the HTML5 Video element.</p>
+		</video>
+	</div>
+	<div class="col-lg-4of12">
+		<p>HTML5 audio player.</p>
+		<audio controls>
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4" type='audio/mp4'>
+			<source src="http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga" type='audio/ogg; codecs=vorbis'>
+			<p>Your user agent does not support the HTML5 Audio element.</p>
+		</audio>
+	</div>	
+</div>
+	
+<h4 class="sg-h4">Figure</h4>
+<figure>
+	<img src="http://placehold.it/400x200/339db0/ffffff&text=Figure+Graphic" alt="Image Alt Text">
+	<figcaption>
+    	<h4>Figure Title</h4>
+    	Figcaption content
+	</figcaption>
+</figure>

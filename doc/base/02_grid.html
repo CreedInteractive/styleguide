@@ -1,0 +1,14 @@
+<p>Based on the grid concepts in the Bootstrap framework the styleguide comes with a 12 column fluid grid that can easily be changed to account for any amount of columns and gutter width. By default each column is 100% width and can be adjusted with each breakpoint (sm, md, lg, xl) to keep the content legible with an appropriate flow. Breakpoints are defined in ems instead of pixels.</p>
+
+<p>In most cases it won&rsquo;t make sense to have 12 columns on a small screen so in the example below each column starts off at 100% width by default (12 of 12 columns), then when more room becomes available each column takes up less width (6 of 12 then 3 of 12 then 2 of 12&hellip;) until each is 1 of 12 columns at the largest breakpoint.</p>
+
+<p><strong>Example:</strong></p>
+<pre>
+&lt;div class="row sg-grid-example"&gt;
+  &lt;div class="col-sm-6of12 col-md-3of12 col-lg-2of12 col-xl-1of12"&gt;
+    content
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<p>This is an extreme example, and in most cases each column will have one or two classes applied. If you want a column to always be 3 of 12 (even at the smallest viewport) you could simply apply <code>.col-3of12</code> and it will always take up the width of 3 of 12 columns.</p>

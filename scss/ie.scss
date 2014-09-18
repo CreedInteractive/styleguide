@@ -1,0 +1,51 @@
+/******************************************************************
+IE Stylesheet
+
+So instead of using the respond.js file to add media query support
+to IE, we're going to use SASS to create an easily readable css file.
+We already use all the styles the standard stylesheet gets, only
+without the media queries so this takes care of everything else.
+
+******************************************************************/
+
+
+/******************************************************************
+IMPORTS & DEPENDENCIES
+Remember, all the BASE styles are called already since IE can
+read those. Below, we need to import only the stuff IE can't
+understand (what's inside the media queries). We also need to
+import the mixins so SASS can use the variables if needed.
+******************************************************************/
+
+// @import "modules/mixins"; // uncomment if variable are required
+@import "partials/ie_grid"; // import grid
+
+
+/******************************************************************
+ADDITIONAL IE FIXES
+These fixes are now ONLY seen by IE, so you don't have to worry
+about using prefixes, although it's best practice. For more info
+on using Modernizr classes, check out this link:
+http://www.modernizr.com/docs/
+******************************************************************/
+
+/*
+For example, you can use something like:
+
+.no-textshadow .class { ... }
+
+You can also target specific versions by using the classes applied to
+the html element:
+
+.lt-ie8 .class { ... }
+
+*/
+
+.lt-ie9 .wrap {
+	width: $fixed-width; // defined in _grid.scss
+}
+
+.lt-ie9 select {
+	background-image: none;
+}
+

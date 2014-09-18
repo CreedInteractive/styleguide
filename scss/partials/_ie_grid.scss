@@ -1,0 +1,81 @@
+/*---------------------------------------------------------------------------
+IE Grid Styles
+----------------------------------------------------------------------------*/
+
+// Default value for $max-cols 
+// You can change it if you need more or less cols
+@mixin col($col, $max-cols: 12) {
+	width: (100%/$max-cols)*$col;
+}
+
+// Variables
+$max-cols: 12;
+$gutter-width: 15px;
+
+// Set a fixed width for IE
+$fixed-width: 960px;
+
+// Rows
+.row {
+	margin-left: -$gutter-width;
+	margin-right: -$gutter-width;
+	display: block;
+
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+	&:first-child {}
+}
+
+// Each column
+[class^="col-"],
+[class*="col-"] {
+	box-sizing: border-box;
+	float: left;
+	padding-left: $gutter-width;
+	padding-right: $gutter-width;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+
+// Create the column classes independent
+// of media queries.
+
+// Default
+@for $sum from 1 through $max-cols {
+	.col-#{$sum}of#{$max-cols} {			
+		@include col($sum, $max-cols);
+	}
+}
+
+// Small
+@for $sum from 1 through $max-cols {
+	.col-sm-#{$sum}of#{$max-cols} {			
+		@include col($sum, $max-cols);
+	}
+}
+
+// Medium
+@for $sum from 1 through $max-cols {
+	.col-md-#{$sum}of#{$max-cols} {			
+		@include col($sum, $max-cols);
+	}
+}
+
+// Large
+@for $sum from 1 through $max-cols {
+	.col-lg-#{$sum}of#{$max-cols} {			
+		@include col($sum, $max-cols);
+	}
+}
+
+// Extra Large
+@for $sum from 1 through $max-cols {
+	.col-xl-#{$sum}of#{$max-cols} {			
+		@include col($sum, $max-cols);
+	}
+}
+

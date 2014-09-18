@@ -1,0 +1,74 @@
+/*---------------------------------------------------------------------------
+IE Styleguide
+----------------------------------------------------------------------------*/
+
+// Put everything here from media queries that IE would ignore
+
+// Side Panel Header
+.sg-panel-header {
+	background: none;
+	border: none;
+	height: auto;
+	position: relative;
+	right: 0;
+	width: auto;
+}
+
+// Toggle nav 
+.sg-nav-toggle {
+	display: none;
+}
+
+// Styleguide title
+.sg-title {
+	line-height: 1.263157894;
+	margin: 1.5em 0;
+	padding: 0 30px;
+}
+
+// Styleguide nav Panel
+.sg-nav-panel {
+	overflow-y: auto;
+	left: 0;
+	width: 240px;
+
+	.sg-nav {
+		float: none;
+		margin-top: 0;
+		width: 100%;
+		
+		li {
+			margin: 0;
+			padding: 0 30px;
+
+			a {
+				font-size: 0.875em;
+				padding: 0.375em 0;
+			}
+
+			&.sg-nav-section {
+				font-size: 1.125em;
+				margin-top: 0.75em;
+				margin-bottom: 0.25em;
+				padding: 0.375em 30px;
+			}
+		}
+	}
+}
+
+// Styleguide wrap
+.sg-wrap {
+	margin-left: 240px;
+	padding-top: 0.75em;
+}
+
+
+// Misc
+.sg-container {
+	padding: 1em 30px;
+}
+
+.sg-top {
+	display: none;
+}
+

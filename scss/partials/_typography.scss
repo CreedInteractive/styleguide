@@ -1,0 +1,124 @@
+/*---------------------------------------------------------------------------
+Typography Styles
+----------------------------------------------------------------------------*/
+
+/*----------------------------------------
+Font Stacks */
+
+$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+
+.sans-serif { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.serif      { font-family: "Georgia", Cambria, Times New Roman, Times, serif; }
+
+/* @font-face here */
+
+
+/*----------------------------------------
+Headings */
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+	color: darken($text-color, 9%);
+	text-rendering: optimizelegibility;
+
+	/* removing text decoration from all headline links */
+	a { text-decoration: none; }
+}
+
+h1, .h1 {
+	font-size: $h1-font-size;
+	line-height: $h1-line-height;
+	margin-top: $h1-margin-top;
+	margin-bottom: $h1-margin-bottom;
+}
+
+h2, .h2 {
+	font-size: $h2-font-size;
+	line-height: $h2-line-height;
+	margin-top: $h2-margin-top;
+	margin-bottom: $h2-margin-bottom;
+}
+
+h3, .h3 {
+	font-size: $h3-font-size;
+	line-height: $h3-line-height;
+	margin-top: $h3-margin-top;
+	margin-bottom: $h3-margin-bottom;
+}
+
+h4, .h4 {
+	font-size: $h4-font-size;
+	line-height: $h4-line-height;
+	margin-top: $h4-margin-top;
+	margin-bottom: $h4-margin-bottom;
+}
+
+h5, .h5 {
+	font-size: 0.875em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+h6, .h6 {
+	font-size: 0.813em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+
+/*----------------------------------------
+Alt Sizes */
+
+.upsize,
+.lead-in {
+	font-size: 1.125em;
+}
+
+.downsize {
+	font-size: 0.75em;
+}
+
+
+/*----------------------------------------
+Text rendering */
+
+// Use these as needed and test accordingly, 
+// by default they are commented out.
+
+/* p {
+	-ms-word-break: break-all;
+	-ms-word-wrap: break-all;
+	word-break: break-word;
+	word-break: break-word;
+	// cleaning up the ragged lines and breaks
+	-webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+			hyphens: auto;
+	// sets a minimum number of characters before and after the break
+	-webkit-hyphenate-before: 2;
+	 -webkit-hyphenate-after: 3;
+			 hyphenate-lines: 3;
+	// enabling fancy ligatures when available
+	-webkit-font-feature-settings: "liga", "dlig";
+	   -moz-font-feature-settings: "liga=1, dlig=1";
+		-ms-font-feature-settings: "liga", "dlig";
+		 -o-font-feature-settings: "liga", "dlig";
+			font-feature-settings: "liga", "dlig";
+} */
+
+
+/*----------------------------------------
+Blockquote */
+
+blockquote {
+	border-left: 4px solid $teal;
+	margin: 0;
+	padding-left: 2em;
+
+	cite {
+		font-size: 0.875em;
+	}
+}
+

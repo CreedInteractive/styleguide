@@ -1,0 +1,54 @@
+/*---------------------------------------------------------------------------
+Pagination
+----------------------------------------------------------------------------*/
+
+/* pagination */
+.paginate {
+	margin-top: 2em;
+	margin-bottom: 1.5em;
+	width: 100%;
+	text-align: center;
+}
+	.pagination {
+		display: inline;
+		font-size: 0.813em;
+		list-style: none;
+		margin: 0 auto;
+		padding: 1em 0.5em;
+		text-align: center;
+		width: auto;
+
+		li {
+			display: inline-block;
+			padding: 0.125em 0.75em;
+			*display: inline;
+			zoom: 1;
+
+			a {
+				border: none;
+				display: block;
+				font-weight: 600;
+				width: 100%;
+			}
+		}
+
+		.disabled {
+			color: lighten($text-color, 30%);
+			cursor: default;
+
+			&:hover,
+			&:visited {
+				border: none;
+			}
+		}
+
+		.current-page {
+			background: lighten($link-color, 24%);
+			border-radius: 3px;
+
+		    a {
+				color: #fff;
+		    	cursor: default;
+		    }
+		}
+	}

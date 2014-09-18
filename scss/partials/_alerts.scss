@@ -1,0 +1,44 @@
+/* -------------------------------------------------------------------------
+ Alerts
+---------------------------------------------------------------------------- */
+
+.alert {
+    border: 2px solid $alert-red;
+    border-radius: 3px;
+    font-size: 0.875em;
+    line-height: 1.375em;
+    margin-bottom: 20px;
+    padding: 0.75em 40px 0.75em 1em;
+    position: relative;
+}
+
+.alert-warning {
+    border-color: $alert-yellow;
+    color: $alert-yellow;
+}
+
+.alert-error {
+    border-color: $alert-red;
+    color: $alert-red;
+}
+
+.alert-success {
+    border-color: $alert-green;
+    color: $alert-green;
+}
+
+.alert-info {
+    border-color: $alert-blue;
+    color: $alert-blue;
+}
+
+// Close alerts
+.alert-close {
+    cursor: default;
+    font-size: 16px;
+    margin-top: -8px;
+    position: absolute;
+         top: 50%;
+       right: 8px;
+}
+

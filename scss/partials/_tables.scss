@@ -1,0 +1,51 @@
+/*---------------------------------------------------------------------------
+Table Styles
+----------------------------------------------------------------------------*/
+
+table {
+	border: 1px solid lighten($text-color, 55%);
+	width: 100%;
+
+	caption {
+		color: lighten($text-color, 24%);
+		font-size: 0.875em;
+		padding-bottom: 0.5em;
+		text-align: center;
+	}
+}
+
+	thead {
+		font-size: 0.75em;
+		font-weight: bold;
+		text-align: left;
+		text-transform: uppercase;
+	}
+
+		th {
+			border-right: 1px solid lighten($text-color, 55%);
+			padding: 4px;
+			text-align: left;
+		}
+
+	tbody {}
+
+	tr {
+		border-bottom: 1px solid lighten($text-color, 55%);
+
+		&:nth-child(even) {
+			background: lighten($text-color, 60%);
+		}
+	}
+
+		td {
+			border-right: 1px solid lighten($text-color, 55%);
+			padding: 4px;
+			text-align: left;
+		}
+
+	tfoot {
+		color: lighten($text-color, 24%);
+		font-size: 0.688em;
+		text-align: left;
+	}
+

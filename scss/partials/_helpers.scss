@@ -1,0 +1,54 @@
+/*---------------------------------------------------------------------------
+Helper Styles
+----------------------------------------------------------------------------*/
+
+// Visibility
+.hide {
+	display: none;
+
+	@include breakpoint(md) {
+		display: block;
+	}
+}
+
+// Vertical alignment
+.inline-block-middle {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+.align-top { vertical-align: top; }
+.align-middle { vertical-align: middle; }
+.align-bottom { vertical-align: bottom; }
+
+// Horizontal alignment
+.align-left, img.align-left {
+	margin-right: 1.5em;
+	display: inline;
+	float: left;
+}
+.align-right, img.align-right {
+	margin-left: 1.5em;
+	display: inline;
+	float: right;
+}
+.align-center, img.align-center {
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	clear: both;
+}
+
+// Text alignment
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// Line height
+.line-height-short { line-height: 1.125; }
+.line-height-normal { line-height: 1.5; }
+.line-height-tall { line-height: 1.75; }
+
+// No wrap
+.no-wrap { white-space: nowrap; }
+
