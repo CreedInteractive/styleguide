@@ -14,8 +14,10 @@
 <h4 class="sg-h4">Responsive Images Using Picturefill</h4>
 <p>To take advantage of the forthcoming W3C HTML standard <code>&lt;picture&gt;</code> element the styleguide also includes support for <a href="http://scottjehl.github.io/picturefill/" target="_blank">Picturefill</a>. Picturefill is a Javascript polyfill that enables support for the <code>&lt;picture&gt;</code> elements in browsers that don&rsquo;t support it natively. Support is also added for <code>&lt;img&gt;</code> with <code>srcset</code> and <code>sizes</code>.</p>
 
+<p><strong>Examples:</strong></p>
+
 <div>
-	<p>An <code>&lt;img&gt;</code> with <code>srcset</code> and <code>sizes</code> attributes. Scale the window to see how the browser is using different size images.</p>
+	<p>An <code>&lt;img&gt;</code> with <code>srcset</code> and <code>sizes</code> attributes. Scale the window to see how the browser is using different sized images.</p>
 	<img sizes="(min-width: 48em) calc(100vw - 240px), 100vw"
 		 srcset="sg-images/mtn_xl_1200.jpg 1200w,
 		         sg-images/mtn_md_768.jpg 768w,
@@ -24,7 +26,7 @@
 </div>
 
 <div>
-	<p>A <code>&lt;picture&gt;</code> with art direction&mdash;images cropped to maintain the subject importance at different sizes. Scale the window to see how the browser is using images that are cropped at different sizes.</p>
+	<p>A <code>&lt;picture&gt;</code> with art direction&mdash;images cropped to maintain the subject focus at different sizes. Scale the window to see how the browser is using images that are cropped at different sizes.</p>
 	<picture>
 		<!--[if IE 9]><video style="display: none;"><![endif]-->
 		<source media="(min-width: 60em)"
@@ -67,7 +69,7 @@
 	
 <h4 class="sg-h4">Figure</h4>
 <figure>
-	<img src="http://placehold.it/400x200/339db0/ffffff&text=Figure+Graphic" alt="Image Alt Text">
+	<img src="sg-images/mtn_768.jpg" alt="Image Alt Text">
 	<figcaption>
     	<h4>Figure Title</h4>
     	Figcaption content
