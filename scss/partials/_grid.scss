@@ -20,7 +20,7 @@ Grid Styles
 	display: -webkit-flex;
     -webkit-flex-flow: row wrap;
 
-	@extend %clearfix;
+	@include clearfix();
 }
 
 // Each column

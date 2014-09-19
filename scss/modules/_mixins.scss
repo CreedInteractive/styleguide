@@ -5,10 +5,10 @@ Styles
 /*----------------------------------------
 Clearfix Placeholder */
 
-// @extend %clearfix;
-%clearfix {
+// @include clearfix;
+@mixin clearfix() {
   &:after {
-	content: "";
+	content: " ";
 	display: table;
 	clear: both;
   }

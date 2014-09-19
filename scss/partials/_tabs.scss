@@ -10,7 +10,7 @@ Tabs */
     margin: 0px;
     padding: 0px;
     position: relative;
-    @extend %clearfix;
+    @include clearfix();
 
     li {
         background: lighten($text-color, 64%);
