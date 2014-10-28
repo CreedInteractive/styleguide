@@ -43,10 +43,17 @@ Grid Styles
 // Extra Small
 // Use this when you want to have columns,
 // even at narrower viewports.
-@include breakpoint(sm) {
+@include breakpoint(xs) {
 	@for $sum from 1 through $max-cols {
 		.col-xs-#{$sum}of#{$max-cols} {			
 			@include col($sum, $max-cols);
+		}
+	}
+
+	// offset
+	@for $sum from 1 through ($max-cols - 1) {
+		.col-xs-offset-#{$sum} {			
+			@include offset-col($sum, $max-cols);
 		}
 	}
 }
@@ -58,6 +65,13 @@ Grid Styles
 			@include col($sum, $max-cols);
 		}
 	}
+
+	// offset
+	@for $sum from 1 through ($max-cols - 1) {
+		.col-sm-offset-#{$sum} {			
+			@include offset-col($sum, $max-cols);
+		}
+	}
 }
 
 // Medium
@@ -65,6 +79,13 @@ Grid Styles
 	@for $sum from 1 through $max-cols {
 		.col-md-#{$sum}of#{$max-cols} {			
 			@include col($sum, $max-cols);
+		}
+	}
+
+	// offset
+	@for $sum from 1 through ($max-cols - 1) {
+		.col-md-offset-#{$sum} {			
+			@include offset-col($sum, $max-cols);
 		}
 	}
 }
@@ -76,6 +97,13 @@ Grid Styles
 			@include col($sum, $max-cols);
 		}
 	}
+
+	// offset
+	@for $sum from 1 through ($max-cols - 1) {
+		.col-lg-offset-#{$sum} {			
+			@include offset-col($sum, $max-cols);
+		}
+	}
 }
 
 // Extra Large
@@ -83,6 +111,13 @@ Grid Styles
 	@for $sum from 1 through $max-cols {
 		.col-xl-#{$sum}of#{$max-cols} {			
 			@include col($sum, $max-cols);
+		}
+	}
+
+	// offset
+	@for $sum from 1 through ($max-cols - 1) {
+		.col-xl-offset-#{$sum} {			
+			@include offset-col($sum, $max-cols);
 		}
 	}
 }

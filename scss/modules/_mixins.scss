@@ -75,6 +75,11 @@ Grid */
 	width: (100%/$max-cols)*$col;
 }
 
+// Offset
+@mixin offset-col($col, $max-cols: 12) {
+	margin-left: percentage(($col / $max-cols));
+}
+
 
 /*----------------------------------------
 Transitions */
